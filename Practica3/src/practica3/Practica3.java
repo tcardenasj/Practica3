@@ -7,6 +7,7 @@ package practica3;
 import java.util.ArrayList;
 import Librerias.Diccionario;
 import Librerias.Lista;
+import controlador.GestionDato;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,8 +99,51 @@ public class Practica3 {
         }else
             System.out.println(elemento);
           
+        System.out.println("____________________________");
+        System.out.println("|ORDENAMIENTO DE LOS USUARIO|");
+        System.out.println("|           BURBUJA         |");
+        System.out.println("|___________________________|");
+        List  lista2 = d.recuperarElementos();
+        GestionDato gD =new GestionDato(lista2);
+        for(Persona PersonaBurbuja:gD.OrdenamientoBurbuja())
+        {
+            System.out.println(PersonaBurbuja.toString());
+        }
         
-       /* System.out.println("____________________________");
+        System.out.println("____________________________");
+        System.out.println("|ORDENAMIENTO DE LOS USUARIO|");
+        System.out.println("|         QUICK SORT        |");
+        System.out.println("|___________________________|");
+        List<Persona> pQuick =d.recuperarElementos();
+        int i=0;
+        Persona[] arreglo=new Persona[d.recuperarElementos().size()];
+        for(Persona persona:pQuick)
+        {
+            arreglo[i]=persona;
+            i++;
+        }
+        GestionDato Gd=new GestionDato(pQuick);
+        for(Persona p:Gd.OrdenamientoquickSort(arreglo,0,pQuick.size()-1))
+        {
+            System.out.println(p.toString());
+        }
+        
+        System.out.println("____________________________");
+        System.out.println("| ELIMINAR DATOS DEL USUARIO|");
+        System.out.println("|___________________________|");
+        System.out.print("Ingrese ID del usuario a ser eliminado:");
+        int IDe=leer.nextInt();
+        Object elemento2 = d.recuperarELemento(IDe);
+        if(d.recuperarELemento(IDr)==null)
+        {
+           JOptionPane.showMessageDialog(null,"ERROR 404! ID NOT FOUND");
+        }else
+            d.eliminarElemento(elemento2);
+            System.err.println("USUARIO ELIMINADO!!");
+        
+       
+            
+        /*System.out.println("____________________________");
         System.out.println("|RECUPERAR DATOS DE UNA CASA|");
         System.out.println("|___________________________|");                  
         System.out.print("Ingrese ID la casa: ");
@@ -111,7 +155,7 @@ public class Practica3 {
            JOptionPane.showMessageDialog(null,"ERROR 404! ID NOT FOUND");
         }
         else
-                System.out.println(IDc);
+                System.out.println(elemento1);
         */
         
         System.out.println("_________________");
